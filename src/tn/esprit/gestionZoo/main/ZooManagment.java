@@ -1,3 +1,5 @@
+package tn.esprit.gestionZoo.main;
+import tn.esprit.gestionZoo.entities.*;
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class ZooManagment {
@@ -22,7 +24,7 @@ public class ZooManagment {
 
         Zoo zooWithMoreAnimals = Zoo.comparerZoo(bilvidaire, Africa);
 
-        System.out.println("Zoo a plus d'animaux est: " + zooWithMoreAnimals.name);
+        System.out.println("Zoo a plus d'animaux est: " + zooWithMoreAnimals.getName());
 
 
         FullAnimal(tigre, bilvidaire);
@@ -39,7 +41,7 @@ public class ZooManagment {
 
         boolean removed = bilvidaire.removeAnimal(lion);
         if (removed) {
-            System.out.println("L'annimal "+lion.name+"a été supprimé du zoo.");
+            System.out.println("L'annimal "+lion.getName()+"a été supprimé du zoo.");
             System.out.println("Animaux dans le zoo après la suppression :");
             System.out.println(bilvidaire);
         } else {
@@ -61,9 +63,9 @@ public class ZooManagment {
         if (!bilvidaire.isZooFull()) {
             boolean addAni2=bilvidaire.addAnimal(lion);
             if (addAni2){
-                System.out.println("l'annimal "+lion.name+" est ajouté");
+                System.out.println("l'annimal "+lion.getName()+" est ajouté");
             }else {
-                System.out.println("l'annimal "+lion.name+" exist déja ou zoo complet ");
+                System.out.println("l'annimal "+lion.getName()+" exist déja ou zoo complet ");
             }
         }else{
             System.out.println("Le zoo est plein. Impossible d'ajouter un nouvel animal.");

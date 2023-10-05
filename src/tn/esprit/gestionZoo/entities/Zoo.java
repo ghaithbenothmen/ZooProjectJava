@@ -1,15 +1,60 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+package tn.esprit.gestionZoo.entities;
+
 public class Zoo {
-    public Animal[] animals;
-    public String name;
-    public String city;
-    public final int nbrCages=25;
+    private Animal[] animals;
+    private String name;
+    private String city;
+    private final int nbrCages=25;
  private int nbrAnimaux;
 
      static int countAnimalCree=0;
 
+    public Animal[] getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(Animal[] animals) {
+        this.animals = animals;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        if (name.isEmpty()){
+            System.out.println("le nom ne doit pas etre vide !");
+        }
+        this.name = name;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public int getNbrCages() {
+        return nbrCages;
+    }
+
+    public int getNbrAnimaux() {
+        return nbrAnimaux;
+    }
+
+    public void setNbrAnimaux(int nbrAnimaux) {
+        this.nbrAnimaux = nbrAnimaux;
+    }
+
+    public static int getCountAnimalCree() {
+        return countAnimalCree;
+    }
+
+    public static void setCountAnimalCree(int countAnimalCree) {
+        Zoo.countAnimalCree = countAnimalCree;
+    }
 
     public Zoo(int nbrAnimaux, String name, String city) {
         this.animals = new Animal[nbrAnimaux];
@@ -43,7 +88,7 @@ public class Zoo {
     }
     public boolean addAnimal(Animal animal) {
 
-            if (animals.length>countAnimalCree && (searchAnimal(animal)==-1) ){
+            if (animals.length>countAnimalCree && (searchAnimal(animal)==-1)&&(!isZooFull()) ){
                     animals[countAnimalCree] = animal;
                 countAnimalCree++;
 
@@ -54,7 +99,7 @@ public class Zoo {
 
     public int searchAnimal(Animal animal) {
         for (int i = 0; i < countAnimalCree; i++) {
-            if (animal.name.equals(animals[i].name) ) {
+            if (animal.getName().equals(animals[i].getName()) ) {
                 return i;
             }
         }
