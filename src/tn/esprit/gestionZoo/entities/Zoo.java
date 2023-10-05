@@ -90,8 +90,7 @@ public class Zoo {
 
             if (animals.length>countAnimalCree && (searchAnimal(animal)==-1)&&(!isZooFull()) ){
                     animals[countAnimalCree] = animal;
-                countAnimalCree++;
-
+                    countAnimalCree++;
                     return true;
             }
         return false;
