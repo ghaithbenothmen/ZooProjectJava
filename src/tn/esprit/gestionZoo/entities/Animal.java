@@ -41,6 +41,7 @@ public class Animal {
         isMammal = mammal;
     }
 
+    public Animal(){};
     public Animal(String family, String name, int age, boolean isMammal){
         this.family=family;
         this.name=name;
@@ -56,6 +57,9 @@ public class Animal {
                 family+"\n age :"
                 +age+"\n isMammal :"
                 +isMammal);
+    }
+    public void MakeSound(){
+        System.out.println("ghvgffy");
     }
 
     @Override
