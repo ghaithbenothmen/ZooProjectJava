@@ -6,7 +6,7 @@ public class Zoo {
     private Aquatic[] aquaticAnimals;
     private String name;
     private String city;
-    private final int nbrCages=25;
+    private final int nbrCages=3;
     private int nbrAnimaux;
 
     public static int countAnimalCree=0;
@@ -98,14 +98,19 @@ public class Zoo {
 
 
     }
-    public boolean addAnimal(Animal animal) {
-
-            if (animals.length>countAnimalCree && (searchAnimal(animal)==-1)&&(!isZooFull()) ){
+    public void addAnimal(Animal animal) throws ZooFullException ,InvalidAgeException {
+        if (isZooFull()) {
+            throw new ZooFullException("zoo est plein. Cannot add more animals.");
+        }
+        if (animal.getAge() < 0) {
+            throw new InvalidAgeException("Invalid age. Age cannot be negative.");
+        }
+            if (animals.length>countAnimalCree && (searchAnimal(animal)==-1)){
                     animals[countAnimalCree] = animal;
                     countAnimalCree++;
-                    return true;
+                System.out.println("annimal bien ajouter au zoo");
             }
-        return false;
+
     }
 
     public int searchAnimal(Animal animal) {

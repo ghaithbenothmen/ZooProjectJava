@@ -17,7 +17,7 @@ public class ZooManagment {
         //tigre.displayAnimal();
         Animal mimi=new Animal("cato","mimo",3,true); //n'est pas dans tableau
 
-
+        Animal aniNeg=new Animal("nega","nego",-3,true); //n'est pas dans tableau
 
         /***************************Create Instance Zoo****************************/
         Zoo bilvidaire=new Zoo(10,"bilvidaire","tunis");
@@ -32,9 +32,22 @@ public class ZooManagment {
 
 
         /***************************Add annimal with static methode****************************/
-        FullAnimal(tigre, bilvidaire);
-        FullAnimal(mimi, bilvidaire);
-        FullAnimal(lion, bilvidaire); //declarer fonction static
+       // FullAnimal(tigre, bilvidaire);
+        //FullAnimal(mimi, bilvidaire);
+        //FullAnimal(lion, bilvidaire); //declarer fonction static
+
+        try {
+            bilvidaire.addAnimal(tigre);
+            System.out.println("Number of animals in the zoo: " + bilvidaire.getCountAnimalCree());
+            bilvidaire.addAnimal(aniNeg);
+
+
+            System.out.println("Number of animals in the zoo: " + bilvidaire.getCountAnimalCree());
+        } catch (ZooFullException e) {
+            System.out.println("Error: " + e.getMessage());
+        } catch (InvalidAgeException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
 
 
         /*************************** Show Animal table after delet************************************/
@@ -101,7 +114,7 @@ public class ZooManagment {
 
 
     /******************************************Static main methode for adding annimal **************************************************/
-    private static void FullAnimal(Animal annimal, Zoo bilvidaire) {
+   /* private static void FullAnimal(Animal annimal, Zoo bilvidaire) {
         if (!bilvidaire.isZooFull()) {
             boolean addAni2=bilvidaire.addAnimal(annimal);
             if (addAni2){
@@ -116,6 +129,8 @@ public class ZooManagment {
 
 
     }
+
+    */
 
     private static void FullAquaticAnimal(Aquatic annimal, Zoo bilvidaire) {
         if (!bilvidaire.isZooFull()) {
